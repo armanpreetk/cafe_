@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bean and Bolos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .background {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('img3.jpg') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .background .text-overlay {
+    position: absolute; 
+    top: 25%;
+    right: 5%; 
+    max-width: 600px; 
+    font-weight: 450;
+    text-align: justified;
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+   }
+
+    .background .text-overlay h1, .background .text-overlay p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      z-index: 1;
+      border: none;
+    }
+
+    .navbar-brand {
+      color: rgb(217, 217, 183);
+      font-weight: bold;
+      font-size: 1.25rem; 
+    }
+
+    .navbar-brand img {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .nav-link {
+      color: rgb(217, 217, 183);
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+
+    .btn-outline-success {
+      border-color: rgb(217, 217, 183);
+      color: rgb(217, 217, 183);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-outline-success:hover {
+      background-color: rgb(217, 217, 183);
+      color: black;
+    }
+
+    .about-us {
+      padding: 60px 20px;
+      background-color: white;
+      text-align: center;
+    }
+
+    .about-us h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about-us p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #202429;
+      color: #ffffff;
+    }
+
+    .footer-content .section {
+      width: 30%;
+    }
+
+    .opening-hours {
+      text-align: left;
+    }
+
+    .contact-info {
+      text-align: right;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .follow-us {
+      text-align: center;
+    }
+
+    .follow-us img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
+
+    .social-media a {
+      margin: 0 8px;
+    }
+
+    .social-media img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 10px;
+      background-color: #131517;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .stats {
+      margin-top: 30px;
+      display: flex;
+      justify-content: right;
+      gap: 70px;
+    }
+
+    .stat-item {
+      text-align: center;
+      font-size: 1.25rem;
+      color: white;
+    }
+
+    .stat-item .stat-number {
+      display: block;
+      font-size: 2rem;
+    }
+
+    .stat-item .stat-label {
+      font-size: 1.2rem;
+    }
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .images img {
+      width: 490px; 
+      height: 500px;
+      object-fit: cover; 
+      margin: 0; 
+    }
+
+    .more {
+      border: 1px solid black;
+      color: black;
+      background-color: transparent;
+      padding: 10px 20px;
+      font-size: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 5px; 
+    }
+
+    .more:hover {
+      background-color: black;
+      color: white;
+    }
+    .heading{
+      font-family: "Playwrite HR", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 35px;
+    }
+
+    .img1 {
+        display: flex;
+        gap:170px;
+        padding-top:8px;
+        padding-bottom: 8px;
+        justify-content: center;
+        background-color: rgb(193, 193, 170);
+    }
+
+    .img1 img {
+        width: 90px; 
+        height: 88px;
+        object-fit: cover; 
+        margin: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="text-overlay">
+      <h1 class="heading">Welcome to Bean and Bolos</h1>
+      <br>
+      <p>Your favorite cafe, now online!</p>
+      <p>At Bean and Bolos, we take pride in offering an exceptional coffee experience. Whether you're a coffee connoisseur or just enjoy a good cup of joe, we have something for everyone. </p>
+      <p>Discover our extensive menu online and place your order with just a few clicks. From classic espresso drinks to unique seasonal specials, our offerings are crafted to delight your taste buds.</p>
+      <p>Join our community of coffee lovers and enjoy the convenience of having your favorite drinks delivered right to your door. Stay connected with us for the latest updates, promotions, and more!</p>
+      <br><br><br>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Items of Coffee</span>
+        </div>  
+        <div class="stat-item">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Running Orders</span>
+        </div>   
+        <div class="stat-item">
+          <span class="stat-number">2k+</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="img1"> 
+    <img src="coffee.png" alt="Coffee">             
+    <img src="cake.png" alt="Cake">             
+    <img src="cookies.png" alt="Cookies">               
+    <img src="sandwich.png" alt="Sandwich">             
+    <img src="coffee-cup.png" alt="Coffee Cup">
+</section>
+  <section class="about-us">
+    <h2>About Us</h2>
+    <p>Bean and Bolos, a part of Coffee Day Global Limited, is India’s favourite hangout for coffee and conversations. Popularly known as CCD, we strive to provide the best experience to our guests. Our coffees are sourced from thousands of small coffee planters, who made us who we are today and we're glad to be a part of their lives. We opened our first cafe in 2022 at Sector 15 in Chandigarh – the youth and the young at heart immediately took to the cafe, and it continues to be one of the most happening places in the city. Bean and Bolos to the youth is a “hangout” spot where they meet people, make conversations, and have a whole lot of fun over steaming cups of great coffee. It's been an exciting journey since then to becoming one of the largest organised retail cafe chains in the country.</p>
+    <button class="more" type="submit">More</button>
+  </section>
+
+  <section class="images">
+   <a href=menu.html><img src="cake1.gif"><img src="cake2.gif"><img src="cake3.gif"></a>
+  </section>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="Bean and Bolos Logo">
+        Bean and Bolos
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order.html">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+</body>
+<footer>
+  <div class="footer-content">
+    <div class="section opening-hours">
+      <p><strong>Opening Hours</strong></p>
+      <p>Mon-Fri: 9 AM - 9 PM</p>
+      <p>Sat-Sun: 10 AM - 10 PM</p>
+    </div>
+    <div class="section follow-us">
+      <a href="index.html"><img src="logo.png" alt="Bean and Bolos Logo"></a>
+      <p><strong>Follow Us:</strong></p>
+      <div class="social-media">
+        <a href="https://www.facebook.com"><img src="facebook.png" alt="Facebook"></a>
+        <a href="https://wa.me/910000000000"><img src="whatsapp.png" alt="WhatsApp"></a>
+        <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a>
+        <a href="https://twitter.com"><img src="twitter.png" alt="Twitter"></a>
+      </div>
+    </div>
+    <div class="section contact-info">
+      <p><strong>Contact Info</strong></p>
+      <p>Bean and Bolos<br>123 Sector 15, Near ABC Mall,<br>Chandigarh 160015, Punjab</p>
+      <p>Phone: <a href="tel:+91 8100507973">+91 8100507973</a>, <a href="tel:+91 46025444">(033) 4602 5444</a></p>
+      <p>Email: <a href="mailto:customercare@beanandbolos.com">customercare@beanandbolos.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 by Bean and Bolos. All Rights Reserved.</p>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean and Bolos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .background {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            background: url('menu2.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .background .text-overlay {
+            position: absolute; 
+            top: 40%;
+            left: 32%;
+            max-width: 650px; 
+            font-weight: 450;
+            text-align: center;
+            color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .background .text-overlay h1, .background .text-overlay p {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1;
+            border: none;
+        }
+
+        .navbar-brand {
+            color:rgb(217, 217, 183);
+            font-weight: bold;
+            font-size: 1.25rem; 
+        }
+
+        .navbar-brand img {
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: rgb(217, 217, 183);
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+
+        .btn-outline-success {
+            border-color: rgb(217, 217, 183);
+            color:rgb(217, 217, 183);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-outline-success:hover {
+            background-color: rgb(217, 217, 183);
+            color: black;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #202429;
+            color: #ffffff;
+        }
+
+        .footer-content .section {
+            width: 30%;
+        }
+
+        .opening-hours {
+            text-align: left;
+        }
+
+        .contact-info {
+            text-align: right;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .follow-us {
+            text-align: center;
+        }
+
+        .follow-us img {
+            width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .social-media a {
+            margin: 0 8px;
+        }
+
+        .social-media img {
+            width: 28px;
+            height: 28px;
+            vertical-align: middle;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px;
+            background-color: #131517;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .heading {
+            font-family: "Playwrite HR", cursive;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 35px;
+        }
+
+        .images {
+            display: flex;
+            gap:170px;
+            padding-top:8px;
+            padding-bottom: 8px;
+            justify-content: center;
+            background-color: rgb(193, 193, 170);
+        }
+
+        .images img {
+            width: 90px; 
+            height: 88px;
+            object-fit: cover; 
+            margin: 0; 
+        }
+        
+        .order-section {
+            padding: 40px 0;
+        }
+
+        .order-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .order-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .order-card img {
+            max-height: 270px; 
+            object-fit: cover;
+        }
+
+        .order-card .card-body {
+            flex: 1; }
+
+        .card-title, .card-text {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+
+        .btn-order {
+            background-color: #202429;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #eaedf1;
+        }
+
+        .menu-table {
+            margin: 50px auto;
+            max-width: 80%;
+            border-collapse: collapse;
+        }
+        .menu-table th, .menu-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .menu-table th {
+            background-color: #202429;
+            color: white;
+        }
+        .menu-table img {
+            width: 100px;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="text-overlay">
+            <h1 class="heading">Sip, savor, and share the moments.</h1>
+            <br>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Bean and Bolos Logo">
+                Bean and Bolos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section class="images"> 
+        <img src="coffee.png" alt="Coffee">             
+        <img src="cake.png" alt="Cake">             
+        <img src="cookies.png" alt="Cookies">               
+        <img src="sandwich.png" alt="Sandwich">             
+        <img src="coffee-cup.png" alt="Coffee Cup">
+    </section>
+    <section class="container order-section">
+        <h1 class="text-center mb-5">Order Our Top Picks</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card order-card">
+                    <img src="espresso.webp" class="card-img-top" alt="Espresso">
+                    <div class="card-body">
+                        <h5 class="card-title order-card-title">Espresso</h5>
+                        <p class="card-text order-card-text">A strong and bold coffee made by forcing hot water through finely-ground coffee beans.</p>
+                        <pre><p class="card-text order-card-text">₹93 (large cup)               ★★★★★ 4.8</p></pre>
+                        <pre><p class="card-text order-card-text">Earliest Delivery:<b>Today</b>        1927 reviews</p></pre>
+                        <a href="order.html"><button class="btn btn-order">Order Now</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card order-card">
+                    <img src="choco cake.avif" class="card-img-top" alt="Chocolate Cake">
+                    <div class="card-body">
+                        <h5 class="card-title order-card-title">Chocolate Cake</h5>
+                        <p class="card-text order-card-text">A rich and moist chocolate cake with a creamy frosting. Perfect for any occasion.</p>
+                        <pre><p class="card-text order-card-text">₹575 (half kg)                 ★★★★★ 4.9</p></pre>
+                        <pre><p class="card-text order-card-text">Earliest Delivery:<b>Today</b>        1153 reviews</p></pre>
+                        <a href="order.html"><button class="btn btn-order">Order Now</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card order-card">
+                    <img src="oat3.jpg" class="card-img-top" alt="Oatmeal Cookies">
+                    <div class="card-body">
+                        <h5 class="card-title order-card-title">Oatmeal Cookies</h5>
+                        <p class="card-text order-card-text">Delicious and chewy oatmeal cookies with a hint of cinnamon and raisin.</p>
+                        <pre><p class="card-text order-card-text">₹160 (one packet)              ★★★★★ 4.9</p></pre>
+                        <pre><p class="card-text order-card-text">Earliest Delivery:<b>Today</b>        959 reviews</p></pre>
+                        <a href="order.html"><button class="btn btn-order">Order Now</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <hr><br>
+    <h1 class="text-center mb-5">Indulge in Our Coffee Delights</h1>
+    <table class="menu-table table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Reviews</th>
+                <th>Place Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="espresso.webp" alt="Espresso"></td>
+                <td>Espresso</td>
+                <td>₹45 (small cup)<br>
+                    ₹75 (medium cup)<br>
+                    ₹93 (large cup)
+                </td>
+                <td>1 cup</td>
+                <td>★★★★★ 4.8</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="latte.webp" alt="Latte"></td>
+                <td>Cafe-Latte</td>
+                <td>₹52 (small cup)<br>
+                    ₹89 (medium cup)<br>
+                    ₹120 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★★ 4.6</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Cappuccino.webp" alt="Cappuccino"></td>
+                <td>Cappuccino</td>
+                <td>₹49 (small cup)<br>
+                    ₹80 (medium cup)<br>
+                    ₹110 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆    4.2</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="mocha-coffee.webp" alt="Mocha"></td>
+                <td>Mocha</td>
+                <td>₹57 (small cup)<br>
+                    ₹93 (medium cup)<br>
+                    ₹130 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆    4.4</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="americano.webp" alt="Americano"></td>
+                <td>Americano</td>
+                <td>₹42 (small cup)<br>
+                    ₹69 (medium cup)<br>
+                    ₹100 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆    4.1</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="flat-white.webp" alt="Flat White"></td>
+                <td>Flat White</td>
+                <td>₹54 (small cup)<br>
+                    ₹92 (medium cup)<br> 
+                    ₹115 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆   4.5</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="long-macchiato.webp" alt="Macchiato"></td>
+                <td>Macchiato</td>
+                <td>₹51 (small cup)<br>
+                    ₹83 (medium cup)<br>
+                    ₹105 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★☆☆  3.7</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr><br>
+    <h1 class="text-center mb-5">Indulge in Our Tea Delights</h1>
+    <table class="menu-table table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Reviews</th>
+                <th>Place Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="black-tea.jpg" alt="black-tea"></td>
+                <td>Black-Tea</td>
+                <td>₹21 (small cup)<br>
+                    ₹30 (medium cup)<br>
+                    ₹37 (large cup)
+                </td>
+                <td>1 cup</td>
+                <td>★★★★★  4.7</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="jasmine2.jpg" alt="jasmine-tea"></td>
+                <td>Jasmine Tea</td>
+                <td>₹29 (small cup)<br>
+                    ₹36 (medium cup)<br>
+                    ₹47 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★☆☆  3.7</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Jasmine tea.jpg" alt="lavender-tea"></td>
+                <td>Lavender Tea</td>
+                <td>₹27 (small cup)<br>
+                    ₹34 (medium cup)<br>
+                    ₹45 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆   4.1</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="OIP.jpeg" alt="masala-chai"></td>
+                <td>Masala Chai</td>
+                <td>₹19 (small cup)<br>
+                    ₹23 (medium cup)<br>
+                    ₹29 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★☆    4.5</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="OIP (1).jpeg" alt="cutting-chai"></td>
+                <td>Cutting-Chai</td>
+                <td>₹15 (small cup)<br>
+                    ₹19 (medium cup)<br>
+                    ₹23 (large cup)</td>
+                <td>1 cup</td>
+                <td>★★★★★  4.8</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr><br>
+    <h1 class="text-center mb-5">Indulge in Our Cake Delights</h1>
+    <table class="menu-table table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Reviews</th>
+                <th>Place Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="choco cake.avif" alt="Chocolate-Cake"></td>
+                <td>Chocolate-Cake</td>
+                <td>₹575 (half kg)<br>
+                    ₹1199 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★★  4.9</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Sponge-Cakes.jpg" alt="sponge-cake"></td>
+                <td>Sponge-Cake</td>
+                <td>₹155 (half kg)<br>
+                    ₹300 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★☆     4.1</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr> 
+            <tr>
+                <td><img src="berry-angel-food-cake.jpg" alt="berry-angel-food-cake"></td>
+                <td>Angel-Food-Cake</td>
+                <td>₹430 (half kg)<br>
+                    ₹850 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★☆☆  3.7</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr> 
+            <tr>
+                <td><img src="Hummingbird-Cake.jpg" alt="Hummingbird-Cake"></td>
+                <td>Hummingbird-Cake</td>
+                <td>₹445 (half kg)<br>
+                    ₹990 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★☆   4.1</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr> 
+            <tr>
+                <td><img src="Ice-Cream-Cakes.jpg" alt="Ice-Cream-Cake"></td>
+                <td>Ice-Cream-Cake</td>
+                <td>₹610 (half kg)<br>
+                    ₹1220 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★☆   4.5</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Basque-Cheesecake.jpg" alt="Basque-Cheesecake"></td>
+                <td>Basque-Cheesecake</td>
+                <td>₹600 (half kg)<br>
+                    ₹1200 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★☆   4.3</td>
+                <td><a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>  
+            <tr>
+                <td><img src="Black-Forest-Cake.jpg" alt="Black-Forest-Cake"></td>
+                <td>Black-Forest-Cake</td>
+                <td>₹530 (half kg)<br>
+                    ₹1160 (one kg)
+                </td>
+                <td>1 serving</td>
+                <td>★★★★★  4.8</td>
+                <td><a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>  
+        </tbody>
+    </table>
+    <br>
+    <hr><br>
+    <h1 class="text-center mb-5">Indulge in Our Cookies Delights</h1>
+    <table class="menu-table table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Reviews</th>
+                <th>Place Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="raspberry-cheesecake-cookies.jpg" alt="raspberry-cheesecake-cookies"></td>
+                <td>Raspberry-Cheesecake-Cookies</td>
+                <td>₹140</td>
+                <td>1 packet</td>
+                <td>★★★★★  4.8</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Chocolate-Chip-Cookies.jpg" alt="Chocolate-Chip-Cookies"></td>
+                <td>Chocolate-Chip-Cookies</td>
+                <td>₹110</td>
+                <td>1 packet</td>
+                <td>★★★★☆   4.3</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="oat3.jpg" alt="Oatmeal Cookies"></td>
+                <td>Oatmeal Cookies</td>
+                <td>₹160</td>
+                <td>1 packet</td>
+                <td>★★★★★  4.9</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="Lemon-ricotta-cookies-07455.jpg" alt="Lemon-ricotta-cookies"></td>
+                <td>Lemon-Ricotta-Cookies</td>
+                <td>₹190</td>
+                <td>1 packet</td>
+                <td>★★★★☆  4.5</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="almond-flour-peanut-butter-cookies-07228.jpg" alt="almond-flour-peanut-butter-cookies"></td>
+                <td>Almond-Flour-Peanut-Butter-Cookies</td>
+                <td>₹80</td>
+                <td>1 packet</td>
+                <td>★★★☆☆  3.7</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <hr><br>
+    <h1 class="text-center mb-5">Indulge in Our Sandwich Delights</h1>
+    <table class="menu-table table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Reviews</th>
+                <th>Place Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="A-wooden-board-with-four-club-sandwiches-chips-tomatoes-and-olives.png" alt="club-sandwich"></td>
+                <td>Club Sandwich</td>
+                <td>₹90</td>
+                <td>1 piece</td>
+                <td>★★★★☆ 4.0</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+            <tr>
+                <td><img src="th.jpeg" alt="coleslaw-sandwich"></td>
+                <td>Coleslaw-sandwich</td>
+                <td>₹65</td>
+                <td>1 piece</td>
+                <td>★★★★☆  4.3</td>
+                <td> <a href="order.html"><button class="btn btn-order">Order Now</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<footer>
+    <div class="footer-content">
+        <div class="section opening-hours">
+            <p><strong>Opening Hours</strong></p>
+            <p>Mon-Fri: 9 AM - 9 PM</p>
+            <p>Sat-Sun: 10 AM - 10 PM</p>
+        </div>
+        <div class="section follow-us">
+            <a href="menu.html"><img src="logo.png" alt="Bean and Bolos Logo"></a>
+            <p><strong>Follow Us:</strong></p>
+            <div class="social-media">
+                <a href="https://www.facebook.com"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://wa.me/910000000000"><img src="whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://twitter.com"><img src="twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+        <div class="section contact-info">
+            <p><strong>Contact Info</strong></p>
+            <p>Bean and Bolos<br>123 Sector 15, Near ABC Mall,<br>Chandigarh 160015, Punjab</p>
+            <p>Phone: <a href="tel:+91 8100507973">+91 8100507973</a>, <a href="tel:+91 46025444">(033) 4602 5444</a></p>
+            <p>Email: <a href="mailto:customercare@beanandbolos.com">customercare@beanandbolos.com</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 by Bean and Bolos. All Rights Reserved.</p>
+    </div>
+</footer>
+</html>
